@@ -42,6 +42,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1;
 }
 
 .logo {
@@ -216,4 +217,21 @@ section {
 
 .home-social a:hover::before {
     width: 100%;
+}
+
+.home-imgHover
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 100%;
+    background: transparent;
+    transition: 3s;
+}
+
+.home-imgHover:hover
+{
+    background-color: var(--bg-color);
+    opacity: .8;
 }

@@ -81,6 +81,7 @@ section {
     display: flex;
     align-items: center;
     padding: 0 9%;
+    background: url('/images/saeedBg.jpg') no-repeat right;
 }
 
 .home-content {
@@ -138,9 +139,8 @@ section {
     transition: .5s;
 }
 
-.btn-box .btn:hover
-{
-    color: var(--main-color );
+.btn-box .btn:hover {
+    color: var(--main-color);
 }
 
 .btn-box .btn::before {
@@ -170,4 +170,50 @@ section {
 
 .btn-box .btn:nth-child(2):hover {
     color: var(--bg-color);
+}
+
+/*adding social media division*/
+.home-social {
+    position: absolute;
+    bottom: 4rem;
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-social a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: .2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--main-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: .4s;
+}
+
+.home-social a:hover {
+    color: var(--bg-color);
+}
+
+.home-social a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--main-color);
+    z-index: -1;
+    transition: .4s;
+}
+
+.home-social a:hover::before {
+    width: 100%;
 }

@@ -282,5 +282,32 @@ span {
     border-top: .2rem solid var(--second-bg-color);
     border-right: .2rem solid var(--main-color);
     border-left: .2rem solid var(--main-color);
-    border-bottom : .2rem solid var(--second-bg-color);
+    border-bottom: .2rem solid var(--second-bg-color);
 }
+
+.about-content {
+    text-align: center;
+}
+
+.about-content h3
+{
+    font-size: 2.6rem;
+}
+
+.about-content p
+{
+    font-size: 1.6rem;
+    /*margin: up right&left bottom;*/
+    margin: 2rem 0 3rem;
+}
+
+.btn-box.btns
+{
+    display: inline-block;
+}
+
+.btn-box.btns a:hover::before
+{
+    background-color: var(--second-bg-color);
+}
+

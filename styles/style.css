@@ -376,7 +376,7 @@ span {
     transition: .5s;
 }
 
-.education-content .content:hover::before{
+.education-content .content:hover::before {
     width: 100%;
 }
 
@@ -399,3 +399,7 @@ span {
     padding-top: .5rem;
 }
 
+/*adding About Section Styles*/
+.skills {
+
+}

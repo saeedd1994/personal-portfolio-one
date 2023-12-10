@@ -42,7 +42,13 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1;
+    z-index: 100;
+    transition: .3s;
+}
+
+/*adding this class using toggle in js*/
+.sticky{
+    background-color: var(--bg-color);
 }
 
 .logo {

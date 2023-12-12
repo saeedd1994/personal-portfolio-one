@@ -117,6 +117,27 @@ section {
     color: transparent;
     -webkit-text-stroke: .7px var(--main-color);
 
+    background-image: linear-gradient(var(--main-color), var(--main-color));
+    background-repeat: no-repeat;
+    background-clip: text;
+    background-position: -33rem 0;
+
+    animation: homeBgText 6s linear infinite;
+    animation-delay: 2s;
+
+}
+
+.home-content .text-animate h3::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-right: 2px solid var(--main-color);
+    z-index: -1;
+
+    animation: homeCursorText 6s linear infinite;
+    animation-delay: 2s ;
 }
 
 .home-content p {
@@ -294,6 +315,8 @@ span {
     border-right: .2rem solid var(--main-color);
     border-left: .2rem solid var(--main-color);
     border-bottom: .2rem solid var(--second-bg-color);
+
+    animation: aboutSpinner 8s linear infinite;
 }
 
 .about-content {
@@ -716,7 +739,7 @@ span {
         transition-delay: 0s;
     }
 
-    .navbar.active .active-nav{
+    .navbar.active .active-nav {
         left: 0;
         transition-delay: .25s;
 
@@ -731,14 +754,13 @@ span {
         transition-delay: 0s;
 
     }
-    .navbar.active a
-    {
+
+    .navbar.active a {
         transform: translateX(0);
         transition-delay: .25s;
     }
 
-    .home-imgHover
-    {
+    .home-imgHover {
         pointer-events: none;
         background: var(--bg-color);
         opacity: .6;
@@ -746,74 +768,90 @@ span {
 }
 
 @media (max-width: 540px) {
-    html{
+    html {
         font-size: 50%;
     }
 
-    .home-content h1
-    {
+    .home-content h1 {
         display: flex;
         flex-direction: column;
     }
 
-    .home-social
-    {
+    .home-social {
         width: 160px;
     }
 
-    .home-social a
-    {
+    .home-social a {
         width: 38px;
         height: 38px;
     }
 }
 
-@media (max-width: 462px)
-{
-    .home-content h1
-    {
+@media (max-width: 462px) {
+    .home-content h1 {
         font-size: 5rem;
     }
 
-    .education
-    {
+    .education {
         padding: 10rem 4% 5rem 5%;
     }
 
-    .contact form .input-box .input-field
-    {
+    .contact form .input-box .input-field {
         width: 100%;
     }
 
-    .footer{
+    .footer {
         flex-direction: column;
     }
 
-    .footer p{
+    .footer p {
         margin-top: 2rem;
         text-align: center;
     }
 }
 
-@media (max-width: 371px)
-{
-    .home
-    {
+@media (max-width: 371px) {
+    .home {
         justify-content: center;
     }
 
-    .home-content
-    {
+    .home-content {
         display: flex;
         align-items: center;
         flex-direction: column;
         text-align: center;
     }
 
-    .home-content h1
-    {
+    .home-content h1 {
         font-size: 5rem;
     }
+}
 
+/*keyframes animation*/
+@keyframes homeBgText {
+    0%, 10%, 100% {
+        background-position: -33rem 0;
+    }
+    65%, 85% {
+        background-position: 0 0;
+    }
+}
 
+@keyframes homeCursorText {
+    0%, 10%, 100% {
+        width: 0;
+    }
+    65%, 78%, 85% {
+        width: 100%;
+        opacity: 1;
+    }
+    75%, 81%{
+        opacity: 0;
+    }
+}
+
+@keyframes aboutSpinner {
+    100%{
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }

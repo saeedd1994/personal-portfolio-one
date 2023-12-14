@@ -925,6 +925,33 @@ section:nth-child(odd) .animate.scroll,
     }
 }
 
+/*handling image in home section*/
+@media (max-width: 1050px) {
+    .home{
+        background-position-x: 110%;
+    }
+}
+
+@media (max-width: 1020px) {
+    .home{
+        background-position-x: 100%;
+        background-size: 650px
+
+    }
+}
+
+@media (max-width: 910px) {
+    .home{
+        background-size: 500px
+    }
+}
+
+@media (max-width: 796px) {
+    .home{
+        background: none;
+    }
+}
+
 /*keyframes animation*/
 @keyframes homeBgText {
     0%, 10%, 100% {

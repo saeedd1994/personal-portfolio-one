@@ -28,12 +28,9 @@ window.onscroll = () => {
                 document.querySelector(`header nav a[href*='${id}']`).classList.add('active');
             })
             section.classList.add('show-animate')
-        }
-        else
-        {
+        } else {
             section.classList.remove('show-animate')
         }
-
 
 
     })
@@ -45,4 +42,9 @@ window.onscroll = () => {
     // remove toggle icon and navbar when scrolling or click on links(scroll)
     hamIcon.classList.remove('bx-x');
     navbar.classList.remove('active')
+
+    // animation footer on scroll
+    let footer = document.querySelector('footer');
+
+    footer.classList.toggle('show-animate', this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight)
 }

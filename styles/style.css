@@ -52,6 +52,7 @@ body {
 }
 
 .logo {
+    position: relative;
     font-size: 2.5rem;
     color: var(--text-color);
     font-weight: 600;
@@ -65,12 +66,17 @@ body {
     transition: .3ms;
 }
 
+.navbar {
+    position: relative;
+}
+
 .navbar a:hover,
 .navbar .active {
     color: var(--main-color);
 }
 
 #menu-icon {
+    position: relative;
     font-size: 3.6rem;
     color: var(--text-color);
     cursor: pointer;
@@ -97,6 +103,7 @@ section {
 }
 
 .home-content h1 {
+    position: relative;
     font-size: 5.6rem;
     font-weight: 700;
     line-height: 1.3;
@@ -112,6 +119,7 @@ section {
 }
 
 .home-content .text-animate h3 {
+    position: relative;
     font-size: 3.2rem;
     font-weight: 700;
     color: transparent;
@@ -137,10 +145,11 @@ section {
     z-index: -1;
 
     animation: homeCursorText 6s linear infinite;
-    animation-delay: 2s ;
+    animation-delay: 2s;
 }
 
 .home-content p {
+    position: relative;
     font-size: 1.6rem;
     margin: 2rem 0 4rem;
 }
@@ -278,6 +287,7 @@ section {
 }
 
 .heading {
+    position: relative;
     font-size: 5rem;
     margin-bottom: 3rem;
     text-align: center;
@@ -324,10 +334,13 @@ span {
 }
 
 .about-content h3 {
+    position: relative;
+    display: inline-block;
     font-size: 2.6rem;
 }
 
 .about-content p {
+    position: relative;
     font-size: 1.6rem;
     /*margin: up right&left bottom;*/
     margin: 2rem 0 3rem;
@@ -363,11 +376,14 @@ span {
 }
 
 .education-column .title {
+    position: relative;
+    display: inline-block;
     font-size: 2.5rem;
     margin: 0 0 1.5rem 2rem;
 }
 
 .education-column .education-box {
+    position: relative;
     border-left: .2rem solid var(--main-color);
 }
 
@@ -673,6 +689,46 @@ span {
     color: var(--main-color);
 }
 
+/*animation reload and scroll*/
+.animate {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: yellowgreen;
+    z-index: 98;
+}
+
+.animate.home-img {
+    width: 50%;
+}
+
+.logo .animate,
+.navbar .animate,
+#menu-icon .animate,
+.home.show-animate .animate {
+    animation: showRight 1s ease forwards;
+    animation-delay: calc(.3s * var(--i));
+}
+
+.animate.scroll {
+    transition: 1s ease;
+    transition-delay: calc(.3s / var(--i));
+    animation: none;
+}
+
+.education .education-box .animate.scroll {
+    width: 105%;
+}
+
+.about.show-animate .animate.scroll,
+.education.show-animate .animate.scroll
+{
+    transition-delay: calc(.3s * var(--i));
+    width: 0;
+}
+
 
 /*BREAKPOINTS*/
 @media (max-width: 1200px) {
@@ -801,7 +857,7 @@ span {
     }
 
     .footer {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 
     .footer p {
@@ -845,13 +901,19 @@ span {
         width: 100%;
         opacity: 1;
     }
-    75%, 81%{
+    75%, 81% {
         opacity: 0;
     }
 }
 
 @keyframes aboutSpinner {
-    100%{
+    100% {
         transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes showRight {
+    100% {
+        width: 0;
     }
 }

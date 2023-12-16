@@ -48,3 +48,26 @@ window.onscroll = () => {
 
     footer.classList.toggle('show-animate', this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight)
 }
+
+//form contact and mail sender
+const form = document.querySelector('form');
+
+function sendEmail() {
+    Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "saeed.da1994@gmail.com",
+        Password: "EA19233449F43AB2C25F9BB6304D62A8BD76",
+        To: 'saeed.da1994@gmail.com',
+        From: "saeed.da1994@gmail.com",
+        Subject: "This is the subject",
+        Body: "And this is the body"
+    }).then(
+        message => alert(message)
+    );
+}
+
+form.addEventListener('submit', (event)=>{
+    event.preventDefault()
+
+    sendEmail();
+})

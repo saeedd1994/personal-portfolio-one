@@ -19,6 +19,7 @@
     --second-bg-color: #112e42;
     --text-color: #ededed;
     --main-color: #00abf0;
+    --error-text: #d93025;
 }
 
 html {
@@ -608,6 +609,9 @@ span {
     position: relative;
     width: 49%;
     margin: .8rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .contact form .input-box .input-field input,
@@ -627,28 +631,9 @@ span {
     color: var(--text-color);
 }
 
-.contact form .focus {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: var(--second-bg-color);
-    border-radius: .6rem;
-    z-index: -1;
-    transition: .5s;
-}
-
-.contact form .input-box .input-field input:focus ~ .focus,
-.contact form .input-box .input-field input:valid ~ .focus,
-.contact form .textarea-field textarea:focus ~ .focus,
-.contact form .textarea-field textarea:valid ~ .focus {
-    width: 100%;
-}
-
 .contact form .textarea-field {
     position: relative;
-    display: flex;
+    /*display: flex;*/
     margin: .8rem 0 2.7rem;
 }
 
@@ -658,6 +643,13 @@ span {
 
 .contact form .btn-box.btns .btn {
     cursor: pointer;
+}
+
+.contact .error-text {
+    font-size: 1.4rem;
+    color: var(--error-text);
+    text-align: left;
+    display: none;
 }
 
 /*adding footer style*/
@@ -927,13 +919,13 @@ section:nth-child(odd) .animate.scroll,
 
 /*handling image in home section*/
 @media (max-width: 1050px) {
-    .home{
+    .home {
         background-position-x: 110%;
     }
 }
 
 @media (max-width: 1020px) {
-    .home{
+    .home {
         background-position-x: 100%;
         background-size: 650px
 
@@ -941,13 +933,13 @@ section:nth-child(odd) .animate.scroll,
 }
 
 @media (max-width: 910px) {
-    .home{
+    .home {
         background-size: 500px
     }
 }
 
 @media (max-width: 796px) {
-    .home{
+    .home {
         background: none;
     }
 }

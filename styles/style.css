@@ -20,6 +20,7 @@
     --text-color: #ededed;
     --main-color: #00abf0;
     --error-text: #d93025;
+    --placeholder: rgba(255, 255, 255, 0.3);
 }
 
 html {
@@ -605,39 +606,31 @@ span {
     flex-wrap: wrap;
 }
 
-.contact form .input-box .input-field {
-    position: relative;
-    width: 49%;
-    margin: .8rem 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.input-box .input-field{
+    width: 48.5%;
 }
 
-.contact form .input-box .input-field input,
-.contact form .textarea-field textarea {
+.field .input-item {
     width: 100%;
-    height: 100%;
     padding: 1.5rem;
     font-size: 1.6rem;
     color: var(--text-color);
     background: transparent;
     border-radius: .6rem;
     border: .2rem solid var(--main-color);
+    margin: 1.4rem 0;
 }
 
-.contact form .input-box .input-field input::placeholder,
-.contact form .textarea-field textarea::placeholder {
-    color: var(--text-color);
+.field .input-item ::placeholder {
+    color: var(--placeholder);
 }
 
 .contact form .textarea-field {
     position: relative;
-    /*display: flex;*/
-    margin: .8rem 0 2.7rem;
+
 }
 
-.contact form .textarea-field textarea {
+.contact form .textarea-field .input-item {
     resize: none;
 }
 
@@ -645,11 +638,15 @@ span {
     cursor: pointer;
 }
 
-.contact .error-text {
+.contact .field .error-text {
     font-size: 1.4rem;
     color: var(--error-text);
     text-align: left;
     display: none;
+}
+
+.contact .field.error .error-text {
+    display: block;
 }
 
 /*adding footer style*/
@@ -755,6 +752,12 @@ section:nth-child(odd) .animate.scroll,
 .footer.show-animate .animate.scroll {
     transition-delay: calc(.3s * var(--i));
     width: 0;
+}
+
+/*handling form validation*/
+
+.contact form .field.error .input-item {
+    border-color: var(--error-text);
 }
 
 

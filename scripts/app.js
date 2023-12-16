@@ -72,7 +72,7 @@ function sendEmail() {
         Body: bodyMessage
     }).then(
         message => {
-            if(message === 'OK'){
+            if (message === 'OK') {
                 Swal.fire({
                     title: "Success",
                     text: "Your Message Send Successfully!",
@@ -84,8 +84,32 @@ function sendEmail() {
     );
 }
 
+
+function CheckInputs() {
+
+    const items = document.querySelectorAll('.input-item');
+    for (const item of items) {
+        if (item.value === '') {
+            item.classList.add('error');
+            item.parentElement.classList.add('error');
+        }
+
+        item.addEventListener('keyup', () => {
+            if (item.value !== '') {
+                item.classList.remove('error');
+                item.parentElement.classList.remove('error');
+            } else {
+                item.classList.add('error');
+                item.parentElement.classList.add('error');
+            }
+        })
+    }
+
+}
+
+
 form.addEventListener('submit', (event) => {
     event.preventDefault()
 
-    sendEmail();
+    CheckInputs();
 })

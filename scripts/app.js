@@ -51,22 +51,40 @@ window.onscroll = () => {
 
 //form contact and mail sender
 const form = document.querySelector('form');
+const fullName = document.getElementById('name');
+const email = document.getElementById('email');
+const phone = document.getElementById('phone');
+const emailSubject = document.getElementById('subject');
+const message = document.getElementById('message');
 
 function sendEmail() {
+    const bodyMessage = `Full Name : ${fullName.value} <br> Phone Number: ${phone.value} <br>
+ Email: ${email.value} <br> Message: ${message.value} `;
+
+
     Email.send({
         Host: "smtp.elasticemail.com",
         Username: "saeed.da1994@gmail.com",
         Password: "EA19233449F43AB2C25F9BB6304D62A8BD76",
         To: 'saeed.da1994@gmail.com',
         From: "saeed.da1994@gmail.com",
-        Subject: "This is the subject",
-        Body: "And this is the body"
+        Subject: emailSubject.value,
+        Body: bodyMessage
     }).then(
-        message => alert(message)
+        message => {
+            if(message === 'OK'){
+                Swal.fire({
+                    title: "Success",
+                    text: "Your Message Send Successfully!",
+                    icon: "success"
+                });
+            }
+
+        }
     );
 }
 
-form.addEventListener('submit', (event)=>{
+form.addEventListener('submit', (event) => {
     event.preventDefault()
 
     sendEmail();

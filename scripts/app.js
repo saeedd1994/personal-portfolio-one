@@ -94,6 +94,15 @@ function CheckInputs() {
             item.parentElement.classList.add('error');
         }
 
+        // handing email validation
+        if (items[1].value !== '') {
+            checkEmail();
+        }
+        items[1].addEventListener('keyup', () => {
+            checkEmail();
+        })
+
+
         item.addEventListener('keyup', () => {
             if (item.value !== '') {
                 item.classList.remove('error');
@@ -107,6 +116,17 @@ function CheckInputs() {
 
 }
 
+function checkEmail() {
+    const emailRegex = /^([a-zA-Z0-9._-]+)@([a-zA-Z0-9.-]+)\.([a-zA-Z]{2,6})$/;
+    if (!email.value.match(emailRegex)) {
+        email.classList.add('error');
+        email.parentElement.classList.add('error');
+    } else {
+        email.classList.remove('error');
+        email.parentElement.classList.remove('error');
+    }
+
+}
 
 form.addEventListener('submit', (event) => {
     event.preventDefault()

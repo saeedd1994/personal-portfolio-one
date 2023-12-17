@@ -121,6 +121,14 @@ function checkEmail() {
     if (!email.value.match(emailRegex)) {
         email.classList.add('error');
         email.parentElement.classList.add('error');
+
+        const emailTextError = document.querySelector('.error-text.email')
+        if (email.value !== '') {
+            emailTextError.innerHTML = 'Enter a Valid Email Address';
+        } else {
+            emailTextError.innerHTML = "Email Address can't be blank";
+        }
+
     } else {
         email.classList.remove('error');
         email.parentElement.classList.remove('error');

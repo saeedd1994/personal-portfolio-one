@@ -63,9 +63,7 @@ function sendEmail() {
 
 
     Email.send({
-        Host: "smtp.elasticemail.com",
-        Username: "saeed.da1994@gmail.com",
-        Password: "EA19233449F43AB2C25F9BB6304D62A8BD76",
+        SecureToken : "214de8a3-604a-400c-97b6-c3a76050d467",
         To: 'saeed.da1994@gmail.com',
         From: "saeed.da1994@gmail.com",
         Subject: emailSubject.value,
@@ -137,7 +135,15 @@ function checkEmail() {
 }
 
 form.addEventListener('submit', (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     CheckInputs();
+
+    if (!fullName.classList.contains('error') && !email.classList.contains('error') && !phone.classList.contains('error') && !emailSubject.classList.contains('error') && !message.classList.contains('error'))
+    {
+        sendEmail();
+
+        form.reset();
+        return false;
+    }
 })
